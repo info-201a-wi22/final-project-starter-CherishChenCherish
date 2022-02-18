@@ -1,7 +1,6 @@
 ---
 title: "Vaccine Data"
-author: "Jeff Ngaruiya,Cherish Chen,Hyewon Sim,Merek Gregory Mecham
-"
+author: "Jeff Ngaruiya,Cherish Chen,Hyewon Sim,Merek Gregory Mecham"
 date: "2/17/2022"
 output: html_document
 ---
