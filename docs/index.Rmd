@@ -49,7 +49,20 @@ summary(cars)
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
+library(ggplot2)
+ggplot(vaccines, aes(x=booster_recip_count, y=pfizer_doses)) + 
+geom_point() +
+geom_smooth() +
+labs(title = "booster vs Pfizer")
+ggplot(vaccines, aes(x= booster_recip_count, y=jj_doses)) + 
+geom_point() +
+geom_smooth() +
+labs(title = "booster vs JJ")
+ggplot(vaccines, aes(x=booster_recip_count, y= moderna_doses))+ 
+geom_point() +
+geom_smooth() +
+labs(title = "booster vs Moderna")
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
