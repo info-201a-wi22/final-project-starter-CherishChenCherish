@@ -58,24 +58,20 @@ library(dplyr)
 library(knitr)
 library(tidyverse)
 
-# loading data set
-
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 View(vaccines)
-# filtering table
 
 df <- vaccines %>%
-max_pfizer <-max(vaccines$pfizer_doses)
-max_jj <-max(vaccines$jj_doses)
-max_jj
-
-
-dff <- df %>%
-  group_by(jj_doses) %>%
-  summarize(max_moderna = max(moderna_doses),
-max_pfizer = max(pfizer_doses),
-max_jj = max(jj_doses),
-max_booster = max(booster_recip_count)) 
+  select(county, administered_date, total_doses, moderna_doses, pfizer_doses, jj_doses, booster_recip_count) %>%
+  group_by(county) %>%
+  summarize(Total_doses = sum(total_doses),
+            Max_doses = max(total_doses),
+            Min_doses = min(total_doses),
+            Median_doses = median(total_doses),
+            most_recent_doses = last(total_doses),
+            total_Pfizer_doses = sum(pfizer_doses),
+            total_moderna_doses = sum(moderna_doses),
+            total_Johnson_doses = sum(jj_doses))
 ```
 
 ## Including Plots
