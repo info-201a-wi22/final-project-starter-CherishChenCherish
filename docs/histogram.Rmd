@@ -1,0 +1,13 @@
+vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
+
+latest_total_doses <- filter(vaccines, administered_date == max(vaccines$administered_date))
+latest_total_doses <- latest_total_doses[-c(1, 2), ]
+hist(latest_total_doses$total_doses,
+  main = "Histogram for Total doses in different counties",
+  xlab = "total doses",
+  border = "blue",
+  col = "green",
+  las = 1,
+  breaks = 15,
+)
+
