@@ -52,7 +52,7 @@ In addition we created our three scatter plots in order to find the relationship
 When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots. Also we grouped each different vaccines and we summarized by the maximum and made an aggregated table. 
 
 # Table
-```{r kable_example, echo=FALSE}
+```{r kable_table, echo=FALSE}
 library("knitr")
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 library(dplyr)
