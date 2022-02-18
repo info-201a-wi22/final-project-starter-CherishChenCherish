@@ -1,22 +1,37 @@
+#Read csv file
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 
+#intall the useful packages
 install.packages("tidyverse")
 library("tidyverse")
 
-total_doses <- max(vaccines$total_doses)
-total_Pfizer_doses <- max(vaccines$pfizer_doses)
-total_moderna_doses <- max(vaccines$moderna_doses)
-total_Johnson_doses <- max(vaccines$jj_doses)
-total_fully_vaccinated <- max(vaccines$fully_vaccinate)
-total_partially_vaccinated <- max(vaccines$total_partially_vaccinated)
+
+columns <- ncol(vaccines)
+rows <- nrow(vaccines)
+
+total_doses <- sum(vaccines$total_doses)
+max_doses <- max(vaccines$total_doses)
+min_doses <- min(vaccines$total_doses)
+mean_doses <- mean(vaccines$total_doses)
+median_doses <- median(vaccines$total_doses)
+total_Pfizer_doses <- sum(vaccines$pfizer_doses)
+total_moderna_doses <- sum(vaccines$moderna_doses)
+total_Johnson_doses <- sum(vaccines$jj_doses)
+total_fully_vaccinated <- sum(vaccines$fully_vaccinate)
+total_partially_vaccinated <- sum(vaccines$total_partially_vaccinated)
 
 summary_info <- list()
-summary_info$num_observations <- nrow(vaccines)
-
+summary_info$num_rows <- rows
+summary_info$num_columns <- columns
 summary_info$total_doses <- total_doses
+summary_info$max_doses <- max_doses
+summary_info$min_doses <- min_doses
+summary_info$mean_doses  <- mean_doses
 summary_info$total_Pfizer_doses <- total_Pfizer_doses
 summary_info$total_moderna_doses <- total_moderna_doses
 summary_info$total_Johnson_doses <- total_Johnson_doses
 summary_info$total_fully_vaccinated <- total_fully_vaccinated
 summary_info$total_partially_vaccinated <- total_partially_vaccinated
+summary_info$total_doses <- total_doses
+
 
