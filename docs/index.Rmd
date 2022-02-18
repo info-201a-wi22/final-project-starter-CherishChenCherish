@@ -49,7 +49,8 @@ Looking at our histogram chart we concluded that there were a lot more people th
 
 In addition we created our three scatter plots in order to find the relationship between the number of people who got the moderna, pfizer and johnson & johnson in relation to their booster shot. 
 
-When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots.
+When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots. Also we grouped each different vaccines and we summarized by the maximum and made an aggregated table. 
+
 
 ## Including Plots
 
