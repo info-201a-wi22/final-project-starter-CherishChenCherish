@@ -29,13 +29,19 @@ labs(title = "JJ vs Pfizer")
 
 #booster
 # Pfizer vs booster
-ggplot(vaccines, aes(x=booster_recip_count, y=pfizer_doses, color = administered_date)) + 
+ggplot(vaccines, aes(x=booster_recip_count, y=pfizer_doses)) + 
 geom_point() +
+geom_smooth() +
 labs(title = "booster vs Pfizer")
 
+# I created this graph to find the relationship between the number of people who got pfizer and the number of people who got booster shot.
+# it reveals that there are a lot of people who got pfizer but not the booster
+# people considering getting pfizer is effective because the line
+# increases positively 
 
 # moderna vs booster
-ggplot(vaccines, aes(x=booster_recip_count, y= moderna_doses)) + 
+ggplot(vaccines, aes(x=booster_recip_count, y= moderna_doses),
+color = ("#668684") + 
 geom_point() +
 geom_smooth() +
 labs(title = "booster vs Moderna")
