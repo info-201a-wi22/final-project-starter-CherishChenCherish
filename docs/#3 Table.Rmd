@@ -18,5 +18,8 @@ df <- vaccines %>%
             Max_doses = max(total_doses),
             Min_doses = min(total_doses),
             Median_doses = median(total_doses),
-            most_recent_doses = last(total_doses))
+            most_recent_doses = last(total_doses),
+            total_Pfizer_doses = sum(pfizer_doses),
+            total_moderna_doses = sum(moderna_doses),
+            total_Johnson_doses = sum(jj_doses))
   
