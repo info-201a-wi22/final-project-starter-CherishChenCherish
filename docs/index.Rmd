@@ -43,7 +43,7 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 # Summary
-From the dataset we found that within the **19 columns** and  **35402 rows**,Looking at the dataset we calculated the total doses and the total different vaccines to find the maximum vaccines that were administered in U.S counties. 
+From the dataset we found that within the **19 columns** and  **35402 rows**,Looking at the dataset we calculated the total doses and the total different vaccines to find the maximum vaccines that were administered in California counties. 
 
 Looking at our histogram chart we concluded that there were a lot more people that didn’t get vaccinated compared to those who did get vaccinated. 
 
