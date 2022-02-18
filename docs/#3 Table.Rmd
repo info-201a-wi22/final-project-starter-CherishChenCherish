@@ -12,17 +12,11 @@ View(vaccines)
 # filtering table
 
 df <- vaccines %>%
-max_pfizer <-max(vaccines$pfizer_doses)
-max_jj <-max(vaccines$jj_doses)
-max_jj
-
-
-dff <- df %>%
-  group_by(jj_doses) %>%
-  summarize(max_moderna = max(moderna_doses),
-max_pfizer = max(pfizer_doses),
-max_jj = max(jj_doses),
-max_booster = max(booster_recip_count)) 
-
-                 
-
+  select(county, administered_date, total_doses, moderna_doses, pfizer_doses, jj_doses, booster_recip_count) %>%
+  group_by(county) %>%
+  summarize(Total_doses = sum(total_doses),
+            Max_doses = max(total_doses),
+            Min_doses = min(total_doses),
+            Median_doses = median(total_doses),
+            most_recent_doses = last(total_doses))
+  
