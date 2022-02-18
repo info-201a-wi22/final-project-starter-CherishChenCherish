@@ -2,8 +2,9 @@
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 
 #intall the useful packages
-install.packages("tidyverse")
+#install.packages("tidyverse")
 library("tidyverse")
+library("dplyr")
 
 
 columns <- ncol(vaccines)
@@ -19,6 +20,7 @@ total_moderna_doses <- sum(vaccines$moderna_doses)
 total_Johnson_doses <- sum(vaccines$jj_doses)
 total_fully_vaccinated <- sum(vaccines$fully_vaccinate)
 total_partially_vaccinated <- sum(vaccines$total_partially_vaccinated)
+most_recent_doses <- last(total_doses)
 
 summary_info <- list()
 summary_info$num_rows <- rows
