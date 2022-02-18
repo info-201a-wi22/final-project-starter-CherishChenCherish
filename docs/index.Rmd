@@ -44,8 +44,11 @@ summary(cars)
 ```
 # Summary
 From the dataset we found that within the **19 columns** and  **35402 rows**,Looking at the dataset we calculated the total doses and the total different vaccines to find the maximum vaccines that were administered in U.S counties. 
+
 Looking at our histogram chart we concluded that there were a lot more people that didn’t get vaccinated compared to those who did get vaccinated. 
+
 In addition we created our three scatter plots in order to find the relationship between the number of people who got the moderna, pfizer and johnson & johnson in relation to their booster shot. 
+
 When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots.
 
 ## Including Plots
