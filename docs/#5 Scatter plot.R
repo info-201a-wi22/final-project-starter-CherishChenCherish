@@ -1,54 +1,29 @@
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 
-
+#install.packages("cowplot")
 library(ggplot2)
-#library("dplyr")
-#library("tidyr")
+library(cowplot)
 
 #scatter plots
 # Moderna vs pfizer
-ggplot(vaccines, aes(x=pfizer_doses, y=moderna_doses)) + 
+as <-ggplot(vaccines, aes(x=pfizer_doses, y=moderna_doses)) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE) +
   labs(title = "Moderna vs Pfizer")
 
 #Moderna vs JJ
-ggplot(vaccines, aes(x=moderna_doses, y=jj_doses)) + 
+ak <- ggplot(vaccines, aes(x=moderna_doses, y=jj_doses)) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE) +
   labs(title = "JJ vs Moderna")
 
 #JJ vs Pfizer
-ggplot(vaccines, aes(x=pfizer_doses, y=jj_doses)) + 
+sd <- ggplot(vaccines, aes(x=pfizer_doses, y=jj_doses)) + 
   geom_point() +
-  geom_smooth()+
-  labs(title = "JJ vs Pfizer")
+  geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE)+
+  labs(title = "JJ vs Pfizer") 
 
-
-
-
-#booster
-# Pfizer vs booster
-ggplot(vaccines, aes(x=booster_recip_count, y=pfizer_doses)) + 
-  geom_point() +
-  geom_smooth() +
-  labs(title = "booster vs Pfizer")
-
-# I created this graph to find the relationship between the number of people who got pfizer and the number of people who got booster shot.
-# it reveals that there are a lot of people who got pfizer but not the booster
-# people considering getting pfizer is effective because the line
-# increases positively 
-
-# moderna vs booster
-ggplot(vaccines, aes(x=booster_recicdp_count, y= moderna_doses),
-       color = ("#668684") + 
-         geom_point() +
-         geom_smooth() +
-         labs(title = "booster vs Moderna")
-       
-       #jj vs booster
-       ggplot(vaccines, aes(x= booster_recip_count, y=jj_doses)) + 
-         geom_point() +
-         geom_smooth() +
-         labs(title = "booster vs JJ")
-       
+title <- ggdraw() + draw_label("Relationship between Vaccines", fontface='bold')
+bottom_row <- plot_grid(sd, ak, ncol = 2, labels = "AUTO")
+plot_grid(title, bottom_row, as, nrow = 3, labels = c("", "", "C"),
+          rel_heights = c(0.2, 1, 1))
