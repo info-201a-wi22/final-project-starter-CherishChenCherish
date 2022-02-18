@@ -52,15 +52,10 @@ In addition we created our three scatter plots in order to find the relationship
 When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots. Also we grouped each different vaccines and we summarized by the maximum and made an aggregated table. 
 
 # Table
-```{r pressure, echo=FALSE}
-library(readr)
-library(dplyr)
-library(knitr)
-library(tidyverse)
-
+```{r kable_example, echo=FALSE}
+library("knitr")
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
-View(vaccines)
-
+library(dplyr)
 df <- vaccines %>%
   select(county, administered_date, total_doses, moderna_doses, pfizer_doses, jj_doses, booster_recip_count) %>%
   group_by(county) %>%
@@ -72,15 +67,14 @@ df <- vaccines %>%
             total_Pfizer_doses = sum(pfizer_doses),
             total_moderna_doses = sum(moderna_doses),
             total_Johnson_doses = sum(jj_doses))
+kable(df)
 ```
 
 ## Including Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
-
+```{r plot_histogram, echo=FALSE}
 latest_total_doses <- filter(vaccines, administered_date == max(vaccines$administered_date))
 latest_total_doses <- latest_total_doses[-c(1, 2), ]
 hist(latest_total_doses$total_doses,
@@ -94,11 +88,12 @@ hist(latest_total_doses$total_doses,
 )
 ```
 
-```{r pressure, echo=FALSE}
+
+```{r plot_scatter, echo=FALSE}
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
 
-
 library(ggplot2)
+
 
 Pfizer_booster <-ggplot(vaccines, aes(x=booster_recip_count, y=pfizer_doses)) +
   geom_point() +
@@ -115,7 +110,6 @@ jj_booster <- ggplot(vaccines, aes(x= booster_recip_count, y=jj_doses)) +
   geom_point() +
   geom_smooth(method = lm, formula = y ~ splines::bs(x, 3), se = FALSE) +
   labs(title = "booster vs JJ")
-
 
 
 title <- ggdraw() + draw_label("Vaccines vs Booster shot", fontface='bold')
