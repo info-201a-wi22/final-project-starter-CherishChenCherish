@@ -66,7 +66,8 @@ ui <- navbarPage("Superstore Analysis",
                selectInput("category", label="Category:",
                            choices = unique(data$Category), selected = "Technology"),
                radioButtons("ship", label="Ship Mode:",
-                           choices = unique(data$Ship.Mode), selected = "First Class")
+                           choices = unique(data$Ship.Mode), selected = "First Class"),
+               p("Our total sales by segment and region graph compares the different sales volumes of three different sales categories. By looking at our graph you can see that the west region tends to have the most sales across the three different sales segments. In addition the south region's sales margin is the lowest across all three different categories, which tells us that something needs to be changed in that regions, such as maybe the type of products that are being advertised or maybe their marketing strategy needs to be changed as well to broadcast what most people want to see in a product in that region. The least profitable region as you can see is the central region in every sales segment, and this is alraming because this means the buisness is losing more money than they are putting out in those regions, a complete financial redesign for this region is needed in order to prevent this from being a continous trend in the future. The east region does significantly good in sales in the consumer and home office segment but in the corporate segment there is room for a little improvement. ")
              ),
              mainPanel(
                plotlyOutput(outputId = "plot3"),
