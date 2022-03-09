@@ -1,0 +1,13 @@
+name: final
+title: finalapp
+username:
+account: xc78
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5812691
+bundleId: 5660207
+url: https://xc78.shinyapps.io/final/
+when: 1646810648.00613
+lastSyncTime: 1646810648.00613
+asMultiple: FALSE
+asStatic: FALSE
