@@ -5,9 +5,9 @@ account: xc78
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5812691
-bundleId: 5660207
+bundleId: 5660311
 url: https://xc78.shinyapps.io/final/
-when: 1646810648.00613
-lastSyncTime: 1646810648.00613
+when: 1646812064.24471
+lastSyncTime: 1646812064.24471
 asMultiple: FALSE
 asStatic: FALSE
