@@ -13,7 +13,45 @@ Looking at our histogram chart we concluded that there were a lot more people th
 
 In addition we created our three scatter plots in order to find the relationship between the number of people who got the moderna, pfizer and johnson & johnson in relation to their booster shot. 
 
-When we evaluated our three scatterplots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots. Also we grouped each different vaccines and we summarized by the maximum and made an aggregated table. 
+When we evaluated our three scatter plots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots. Also we grouped each different vaccines and we summarized by the maximum and made an aggregated table. 
+
+## Project Title
+Vaccine Data
+
+## Authors
+Jeff Ngaruiya jngaru@uw.edu Cherish Chen Xc78@uw.edu Hyewon Sim hyewoni@uw.edu Merek Gregory Macham mechamm@uw.edu
+
+## Affiliation
+INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+
+## Date
+Winter 2022
+
+## Key Words
+1. vaccine 2. Pandemic 3. Covid-19
+
+## Abstact
+**(1)** Our primary concern is vaccination against the new coronavirus variant. This issue is critical because the Shinkan virus is having a significant impact on people's daily lives, and in order to address it, we must first understand why and with which brands people are vaccinated **(2)** "We are concerned about both the vaccination rate and the vaccination status of people. **(3)** We plan to consider that certain vaccines could affect everyone differently
+
+## Introduction
+**(1)**Our primary concern is vaccination against the new coronavirus variant. This issue is critical because the Shinkan virus is having a significant impact on people's daily lives, and in order to address it, we must first understand why and with which brands people are vaccinated **(2)** "We are concerned about both the vaccination rate and the vaccination status of people. **(3)** We plan to consider that certain vaccines could affect everyone differently
+
+## Design Situation
+Framing the topic of concern：Our project is about data on the New Corona vaccine, specifically how many people in the United States received the vaccine, what brands of vaccines they received, and why they received the vaccine. The New Coronavirus pandemic has had a negative impact on the economy and on the lives of individuals. Human values：The vaccine is a way to assist people with the New Crown virus, knowing the vaccine data enables people to cope with the virus's effects. Stakeholders.：Individuals living in the epidemic's path, healthcare providers, and government agencies. The direct stakeholders of our topic would be the companies that manufacture the vaccines, because they could be affected if their vaccine was deemed the least effective. One of the skills that could be assumed is that the vaccine manufacturing companies adhered to CDC guidelines. The vaccine companies want to believe that their vaccine will solve the most cases.The indirect stakeholders in our project would be the different locations could suffer in a decrease of tourists if their location has more mortality rates in conjunction with covid cases.Benefits and harms：It has the potential to improve people's understanding of their vaccination status and the efficiency with which medical structures deliver vaccines to patients.Our topic could connect people to the vaccine process. It gives us information about how many people are vaccinated, and what types of vaccines are the most popular or are most effective. It might be beneficial to our society because the government agencies or healthcare providers will use this data to help our society to live with least economic damage. It might be harmful to certain companies that manufacture the vaccines if the data shows their vaccine was less effective, or shows that less people choose their vaccine.
+
+## Research Questions
+1. The relationship between number of deaths and types of the vaccine 2.The reasons people aren't getting vaccinated 3.Which covid vaccine is most or least effective. Which areas have higher death rates? Which covid variants are seen more in certain areas. How are different races of people reacting to the covid vaccines? How are different races of people reacting when it comes to deciding which vaccine to get? Is there a correlation with how different races react when their exposed to Covid-19 or other variants?
+
+## The Dataset
+It is our goal to gather information on the vaccination rates of the new coronavirus vaccine in the United States, as well as the vaccination rates in different weeks and the vaccination rates of different brands. Vaccination data must be scrutinized critically, and we must do so with skepticism. Because there have been reports of nurses selling bogus vaccination cards, the vaccination data may be inaccurate, and we must screen the data for authenticity to the greatest extent possible before using it. The vaccination rates for different states are contained within the data cooler. https://data.chhs.ca.gov/dataset/vaccine-progress-dashboard We found a Covid vaccine dataset from California Health and Human Services Open Data Portal. The dataset consists of 34,596 observations and nine variables such as country and vaccination type. This data is from the same source as the Vaccine Progress Dashboard at https://covid19.ca.gov/vaccines/ which summarizes vaccination data at the county level by county of residence. The last update was February 4, 2022. This dataset is a credible source because it is from the California government and is categorized as the official data. The data that we are going to be reviewing is a vaccine data set with intentions to analyze the data. The data will need to be analyzed and critiqued properly as there are many known cases of misreporting due to political beliefs and stances. The purpose of this data is to be able to keep track vaccines during this pandemic, to study how useful and widespread vaccines were able to be, and keep this information with us to apply it to possible future pandemics. This data set that we are analyzing is from the California government, so the government has and will profit from the data included in the set, although it is public information that is useful for citizens, as well as public health officials.
+
+## Expected Implications
+Possible implications for the technologists, designers, and policymakers could be an ethical issue arising surrounding the production or manufacturing of the vaccine. If we were misinformed regarding the effectiveness of the vaccine, there all the above professions would be implicated in the vaccine as the vaccine rollout reached so many people across the country. Another potential implication could be the human trials for testing the vaccine, and if those individuals felt like their rights were being executed properly.
+
+## Limitations
+Some limitations that we could address is we don’t know if other countries that were affected by the pandemic had the resources to mass produce vaccines such as the super power countries of the world. As a result this could affect the data because not every country has the same resources in regards to the pandemic. A limitation that might arise is the information actually being reported to and from the CDC. If different states have different methods for counting COVID-19 vaccination rates, deaths, hospitalizations, e.t.c., our data might not be as accurate as we would like it to be. The different reporting methods from each state don’t pose as big of a limitation as being unaware of the different reporting methods in different countries.
+
+
 
 # Table
 ```{r kable_table, echo=FALSE}
@@ -34,9 +72,8 @@ df <- vaccines %>%
 kable(df)
 ```
 
-## Including Plots
+## Histogram
 
-You can also embed plots, for example:
 
 ```{r plot_histogram, echo=FALSE}
 latest_total_doses <- filter(vaccines, administered_date == max(vaccines$administered_date))
@@ -50,8 +87,12 @@ hist(latest_total_doses$total_doses,
   las = 1,
   breaks = 15,
 )
+
 ```
 
+This graph shows the different levels and numbers of covid vaccination in different counties, from this graph we can see that most counties have between 0 and 2000 vaccinations, and very few counties have more than 5000 vaccinations.
+
+## Scattor Plots 
 
 ```{r plot_scatter, echo=FALSE}
 vaccines <- read.csv("https://data.chhs.ca.gov/dataset/e283ee5a-cf18-4f20-a92c-ee94a2866ccd/resource/130d7ba2-b6eb-438d-a412-741bde207e1c/download/covid19vaccinesbycounty.csv")
@@ -84,5 +125,9 @@ plot_grid(title, bottom_row, jj_booster, nrow = 3, labels = c("", "", "C"),
 
 ```
 
+
+In addition we created our three scatter plots in order to find the relationship between the number of people who got the moderna, pfizer and johnson & johnson in relation to their booster shot. 
+
+When we evaluated our three scatter plots we concluded that people were getting their booster shots because the slopes on the graph were increasing positively. Which means that the vaccines were effective because people were getting their booster shots.
 
 
